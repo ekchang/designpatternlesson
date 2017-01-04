@@ -25,6 +25,17 @@ public class EmailTest {
 
   @Test
   public void builderTest() {
-    // TODO write a test that verifies your builder works.
+    Email email = new Email.Builder("erick@c4q.nyc", "rina@c4q.nyc")
+        .senderName("Erick C.")
+        .recipientName("Rina G.")
+        .message("The students are late to class again...")
+        .build();
+
+    assertThat(email.senderEmail).isEqualTo("erick@c4q.nyc");
+    assertThat(email.recipientEmail).isEqualTo("rina@c4q.nyc");
+    assertThat(email.message).isEqualTo("The students are late to class again...");
+    assertThat(email.senderName).isEqualTo("Erick C.");
+    assertThat(email.recipientName).isEqualTo("Rina G.");
+    assertThat(email.senderSignature).isEqualTo(null);
   }
 }
