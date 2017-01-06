@@ -4,8 +4,7 @@ import com.ekc.c4q.designpatternlesson.model.Square;
 
 /**
  * Factory / Static Factory Method example from Effective Java 2nd. Ed, Item 1: Consider static
- * factory
- * methods instead of constructors
+ * factory methods instead of constructors
  */
 public class FactoryProblemSet {
   public static void main(String[] args) {
