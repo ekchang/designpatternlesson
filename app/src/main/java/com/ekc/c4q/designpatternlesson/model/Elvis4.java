@@ -2,7 +2,7 @@ package com.ekc.c4q.designpatternlesson.model;
 
 /**
  * This is probably your preferred way of creating a lazy singleton, if you don't care about
- * testing.
+ * testing. This is known as the "initialization on demand" pattern.
  *
  * It still has the issue that our Singleton will always be a real object and that we cannot mock
  * or substitute a fake object. So if this was our network client and we wanted to use it in a unit
