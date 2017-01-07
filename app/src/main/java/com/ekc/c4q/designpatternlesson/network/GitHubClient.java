@@ -14,12 +14,20 @@ public class GitHubClient {
   }
 
   public static GitHubClient getInstance() {
-    Retrofit retrofit = new Retrofit.Builder()
-        .baseUrl(API_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build();
-    GitHubApi api = retrofit.create(GitHubApi.class);
+    return GitHubClientHolder.INSTANCE;
+  }
 
-    return new GitHubClient(api);
+  private static class GitHubClientHolder {
+    private static final GitHubClient INSTANCE;
+
+    static {
+      Retrofit retrofit = new Retrofit.Builder()
+          .baseUrl(API_URL)
+          .addConverterFactory(GsonConverterFactory.create())
+          .build();
+      GitHubApi api = retrofit.create(GitHubApi.class);
+
+      INSTANCE = new GitHubClient(api);
+    }
   }
 }
