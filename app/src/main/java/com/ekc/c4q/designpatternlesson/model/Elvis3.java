@@ -42,6 +42,15 @@ public class Elvis3 {
     return instance;
   }
 
+  /**
+   * This is largely useful for testing because you can do something like:
+   *
+   * Elvis3 mockElvis = Mockito.mock(Elvis3.class); // make an Elvis3 mock
+   * Elvis3.setSingletonInstance(mockElvis);
+   *
+   * And then now all calls in your test code for Elvis3.getInstance() will use the mock rather than
+   * a real Elvis3.
+   */
   public static void setSingletonInstance(Elvis3 instance) {
     if (instance == null) {
       throw new IllegalArgumentException("Instance must not be null");
